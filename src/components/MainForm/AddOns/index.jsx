@@ -1,18 +1,16 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import formSlice from "../../../redux/formSlice";
 
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, NumberInput, NumberInputField } from "@chakra-ui/react";
+import AddOnCard from "./AddOnCard";
 
 function AddOns() {
 
-  const state = useSelector(state => state.form);
-  const dispatch = useDispatch();
-  const {setAddOns} = formSlice.actions;
-
   return(
     <div className="form-step-container">
-      <p>Add ons here</p>
+      <div id='addon-container'>
+        <AddOnCard title={'Online Services'} subtitle={'Access to multiplayer games'} moCost={1}  />
+        <AddOnCard title={'Larger Storage'} subtitle={'Extra 1TB of cloud save'} moCost={2}  />
+        <AddOnCard title={'Customizable Profile'} subtitle={'Custom theme on your profile'} moCost={2}  />        
+      </div>
     </div>
   )
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, Image, Text } from "@chakra-ui/react";
 
-function PlanCard({icon, title, moCost, isAnnual, setPlan}) {
+function PlanCard({icon, title, monthCost, isAnnual, setPlan}) {
 
   return(
     <Card size={'lg'} className='plan-card' onClick={setPlan}>
@@ -14,9 +14,9 @@ function PlanCard({icon, title, moCost, isAnnual, setPlan}) {
           <Text className="bold">{title}</Text>
           <Text className="greyed">
             {isAnnual ? 
-            `$${moCost * 10}/yr`
+            `$${monthCost * 10}/yr`
             :
-            `$${moCost}/mo`
+            `$${monthCost}/mo`
             }
           </Text>
           <Text hidden={isAnnual ? false : true}>2 months free</Text>

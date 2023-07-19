@@ -6,12 +6,16 @@ const formSlice = createSlice({
     name: undefined,
     email: undefined,
     phone: undefined,
-    plan: undefined,
+    plan: {
+      name: undefined,
+      monthCost: 0,
+    },
     isAnnualPlan: undefined,
     addons: {
       onlineService: undefined,
       largerStorage: undefined,
       customProfile: undefined,
+      cost: 0,
     },
     totalCost: 0,
   },

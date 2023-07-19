@@ -116,3 +116,51 @@
   margin-bottom: 1rem;
 }
 
+.chakra-card{
+  &.checked{
+    border: 1px solid hsl(243, 100%, 62%);
+  }
+}
+
+#addon-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addon-option-card-body{
+  display: flex;
+  align-items: center;
+
+  .chakra-checkbox__control{
+    width: 20px;
+    height: 20px;
+    border: 1px solid hsl(229, 24%, 87%);
+  }
+  
+  .addon-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 1rem 0 1.5rem;
+  }
+
+  .addon-cost{
+    justify-self: flex-end;
+    color: hsl(243, 100%, 62%);
+  }
+
+  [data-checked]{
+    > .chakra-checkbox__control {
+      background-color: hsl(243, 100%, 62%);
+      border-color: hsl(243, 100%, 62%);
+
+      &:hover{
+        background-color: hsl(243, 100%, 66%);
+        border-color: hsl(243, 100%, 66%);
+      }
+    }
+  }
+}

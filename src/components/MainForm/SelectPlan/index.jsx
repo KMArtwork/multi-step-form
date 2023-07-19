@@ -26,14 +26,14 @@ function SelectPlan() {
   return(
     <div className="form-step-container">
       <div id='plan-cards'>
-        <PlanCard icon={Arcade} title={'Arcade'} moCost={9} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Arcade', cost: 9})}}/>
-        <PlanCard icon={Advanced} title={'Advanced'} moCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', cost: 12})}}/>
-        <PlanCard icon={Pro} title={'Pro'} moCost={15} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Pro', cost: 15})}}/>
+        <PlanCard icon={Arcade} title={'Arcade'} monthCost={9} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Arcade', cost: 9})}}/>
+        <PlanCard icon={Advanced} title={'Advanced'} monthCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', cost: 12})}}/>
+        <PlanCard icon={Pro} title={'Pro'} monthCost={15} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Pro', monthCost: 15})}}/>
       </div>
 
       <FormControl onChange={handleIsAnnualChange} className='plan-select'>
         <FormLabel className={state.plan ? 'greyed' : null}>Monthly</FormLabel>
-        <Switch id='plan-select-switch' />
+        <Switch id='plan-select-switch' isChecked={state.isAnnualPlan}/>
         <FormLabel className={state.plan ? null : 'greyed'}>Yearly</FormLabel>
       </FormControl>
     </div>
