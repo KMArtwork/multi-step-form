@@ -12,9 +12,9 @@ const formSlice = createSlice({
     },
     isAnnualPlan: undefined,
     addons: {
-      onlineService: undefined,
-      largerStorage: undefined,
-      customProfile: undefined,
+      "Online Services": undefined,
+      "Larger Storage": undefined,
+      "Customizable Profile": undefined,
       cost: 0,
     },
     totalCost: 0,
@@ -41,10 +41,13 @@ const formSlice = createSlice({
       state.isAnnualPlan = action.payload;
     },
     setAddOns(state, action){
-      state.addons = action.payload;
+      console.log('set addons hit')
+      state.addons[action.payload.title] = action.payload.isChecked;
+      console.log(state.addons[action.payload.title]);
     },
     setTotalCost(state, action){
-      state.totalCost = 0;
+      console.log('set total cost hit', state.totalCost + action.payload)
+      state.totalCost = state.totalCost + action.payload;
     },
   }
 })
