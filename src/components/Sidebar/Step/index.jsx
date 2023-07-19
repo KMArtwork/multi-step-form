@@ -1,14 +1,14 @@
 import React from "react";
 
-import { Text } from "@chakra-ui/react";
+import { Text, Circle } from "@chakra-ui/react";
 
 function FormStep({stepNumber, stepLabel}) {
 
   return(
-    <div className="form-step">
-      <div className="step-number">
+    <div className="sidebar-step">
+      <Circle size='2.5rem' className="step-number">
         {stepNumber}
-      </div>
+      </Circle>
       <div className="step-text">
         <Text className="step-number-text">Step {stepNumber}</Text>
         <Text className="step-label">{stepLabel}</Text>

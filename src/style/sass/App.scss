@@ -16,3 +16,103 @@
   align-items: center;
   height: 100vh;
 }
+
+.bold {
+  font-weight: 700;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.greyed {
+  color: hsl(231, 11%, 63%);
+}
+
+.form-step-container{
+  height: 300px;
+}
+
+#form-card-body{
+  width: 975px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-container{
+  text-align: left;
+  color: hsl(213, 96%, 18%);
+  margin: 2rem;
+}
+
+#form-subtitle{
+  color: hsl(231, 11%, 63%);
+  margin: 0.75rem 0;
+}
+
+#form-buttons{
+  display: flex;
+  justify-content: space-between;
+  > * {
+    padding: 1.5rem 1rem;
+    position: relative;
+    top: 2.5rem;
+    width: 25%;
+  }
+
+  #next-step-button{
+    background-color: hsl(213, 96%, 18%) !important;
+    color: white !important;
+    font-weight: 400 !important;
+  }
+  
+  #go-back-button{
+  
+  }
+}
+
+.plan-select{
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  margin: 2rem 0;
+  background-color: hsl(231, 100%, 99%);
+
+  > label{
+    margin: 0;
+  }
+
+  .chakra-switch{
+    margin: 0 1.5rem;
+  }
+
+  .chakra-switch__track{
+    // width: 40px;
+    padding: 0.25rem;
+    background-color: hsl(213, 96%, 18%);
+  }
+}
+
+#plan-cards{
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-card{
+  display: flex;
+  flex-direction: column;
+  height: 175px;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.plan-card-body{
+  padding: 1rem !important;
+}
+
+.plan-card-details{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+}
+

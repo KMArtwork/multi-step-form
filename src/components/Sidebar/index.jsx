@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Image } from '@chakra-ui/react';
-import sidebarBg from '../../assets/images/bg-sidebar-desktop.svg';
 import FormStep from "./Step";
 
 function Sidebar() {
