@@ -1,0 +1,56 @@
+
+#sidebar-bg{
+  width: 274px;
+  height: 568px;
+  background-image: url('../../assets/images/bg-sidebar-desktop.svg');
+  color: white;
+  padding: 1rem;
+}
+
+#test{
+  color: white;
+}
+
+.form-step{
+  margin: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+}
+
+.step-number{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid white;
+
+  color: white;
+  margin-right: 1rem;
+
+  &.active{
+    background-color: hsl(228, 100%, 84%);
+    color: hsl(213, 96%, 18%);
+  }
+}
+
+.step-text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  > * {
+    padding: 0.15rem 0;
+  }
+}
+
+.step-number-text{
+  font-weight: 300;
+}
+
+.step-label{
+  text-transform: uppercase;
+}
