@@ -30,7 +30,8 @@ const formSlice = createSlice({
       email: false,
       phone: false,
       plan: false,
-    }
+    },
+    formIdx: 0,
   },
   reducers: {
     setName(state, action){
@@ -60,6 +61,10 @@ const formSlice = createSlice({
     setValidation(state, action){
       console.log('set validation hit');
       state.validation[action.payload.name] = action.payload.value;
+    },
+    setFormIdx(state, action){
+      console.log('set form idx hit');
+      state.formIdx = action.payload;
     }
   }
 })

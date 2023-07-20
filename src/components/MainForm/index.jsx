@@ -12,9 +12,8 @@ function MainForm() {
 
   const state = useSelector(state => state.form);
   const dispatch = useDispatch();
-  const { setValidation } = formSlice.actions;
+  const { setFormIdx } = formSlice.actions
 
-  const [formIdx, setFormIdx] = useState(0);
   const [formTitle, setFormTitle] = useState('Personal Info');
   const [formSubTitle, setFormSubTitle] = useState('Please provide your name, email address, and phone number');
 
@@ -41,47 +40,47 @@ function MainForm() {
       default:
         console.error('Error changing pages on form');
     }
-    setFormIdx(idx);
+    dispatch(setFormIdx(idx));
   }
 
   return(
     <Container maxW={'xl'} id='form-container'>
-      <Heading as={'h3'} id='form-title' visibility={formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
-      <Text id='form-subtitle' visibility={formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
+      <Heading as={'h3'} id='form-title' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
+      <Text id='form-subtitle' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
       <br/>
       {
-        formIdx === 0 ?
+        state.formIdx === 0 ?
         <PersonalInfo />
         :
-        formIdx === 1 ?
+        state.formIdx === 1 ?
         <SelectPlan />
         :
-        formIdx === 2 ?
+        state.formIdx === 2 ?
         <AddOns />
         :
-        formIdx === 3 ?
+        state.formIdx === 3 ?
         <Summary changePlan={() => setFormIdx(1)}/>
         :
-        formIdx === 4 ?
+        state.formIdx === 4 ?
         <ThankYou />
         :
         <p>Oh no you broke it</p>
       }
       <br/>
-      <div id='form-buttons' hidden={formIdx >= 4 ? true : false}>
-        <Button id='go-back-button' onClick={() => handleChangeFormIdx(formIdx - 1)} visibility={formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
+      <div id='form-buttons' hidden={state.formIdx >= 4 ? true : false}>
+        <Button id='go-back-button' onClick={() => handleChangeFormIdx(state.formIdx - 1)} visibility={state.formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
         <Button 
           id='next-step-button' 
-          onClick={() => handleChangeFormIdx(formIdx + 1)} 
-          className={formIdx === 3 ? 'purple' : null}
+          onClick={() => handleChangeFormIdx(state.formIdx + 1)} 
+          className={state.formIdx === 3 ? 'purple' : null}
           isDisabled={
-            formIdx === 0 ?
+            state.formIdx === 0 ?
               (state.validation.name && state.validation.email && state.validation.phone) ? 
                 false
               :
                 true
             :
-            formIdx === 1 ?
+            state.formIdx === 1 ?
               state.validation.plan ?
                 false
               :
@@ -91,7 +90,7 @@ function MainForm() {
           }
         >
           {
-            formIdx === 3 ?
+            state.formIdx === 3 ?
             'Confirm'
             :
             'Next Step'

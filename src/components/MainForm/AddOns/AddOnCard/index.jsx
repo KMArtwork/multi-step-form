@@ -12,11 +12,11 @@ function AddOnCard({title, subtitle, monthCost, checked}) {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleAddOption = (event) => {
-    setIsChecked(event.target.checked);
+  const handleClick = (event) => {
+    setIsChecked(!event.currentTarget.querySelector('input').checked);
     dispatch(setAddOns({
       title: title,
-      isChecked: event.target.checked,
+      isChecked: !event.currentTarget.querySelector('input').checked,
     }))
   }
 
@@ -25,9 +25,9 @@ function AddOnCard({title, subtitle, monthCost, checked}) {
   }, [])
 
   return(
-    <Card className={isChecked ? 'checked addon-card' : 'addon-card'} >
+    <Card className={isChecked ? 'checked addon-card' : 'addon-card'} onClick={handleClick}>
       <CardBody className="addon-option-card-body">
-        <Checkbox onChange={handleAddOption} isChecked={checked} />
+        <Checkbox isChecked={checked} />
         <div className="addon-details">
           <div className='addon-text'>
             <Text className="bold">{title}</Text>

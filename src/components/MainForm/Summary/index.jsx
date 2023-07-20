@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import formSlice from "../../../redux/formSlice";
 import { Card, CardBody, Divider, Text, Link } from '@chakra-ui/react'
 import AddOnSummary from "./AddOnSummary";
 
-function Summary({changePlan}) {
+function Summary() {
 
   const state = useSelector(state => state.form);
+  const dispatch = useDispatch();
+  const { setFormIdx } = formSlice.actions
   const [total, setTotal] = useState(0);
+
+  const changePlan = () => {
+    dispatch(setFormIdx(1))
+  }
 
   const renderAddOns = () => {
     let addons = Object.entries(state.addons);
@@ -68,7 +75,7 @@ function Summary({changePlan}) {
             </Text>
           </div>
           <br/>
-          <Divider />
+          <Divider className="greyed"/>
           {renderAddOns()}
         </CardBody>
       </Card>

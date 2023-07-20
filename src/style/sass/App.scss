@@ -11,6 +11,8 @@ $PurplishBlue: hsl(243, 100%, 62%);
 $PastelBlue: hsl(228, 100%, 84%);
 $LightBlue: hsl(206, 94%, 87%);
 $StrawberryRed: hsl(354, 84%, 57%);
+$PurplishBlueHoverBG: hsl(243, 100%, 66%);
+$PurplishBlueHoverBorder: hsl(243, 100%, 66%);
 
 #root {
   background-color: $Magnolia;
@@ -41,6 +43,19 @@ $StrawberryRed: hsl(354, 84%, 57%);
 
 .purple {
   background-color: $PurplishBlue;
+}
+
+input{
+  border-color: $LightGray !important;
+
+  &:focus-visible{
+    border-color: $PurplishBlue !important;
+    box-shadow: 0 0 0 1px $PurplishBlue !important;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .form-step-container{
@@ -81,12 +96,21 @@ $StrawberryRed: hsl(354, 84%, 57%);
     
     &.purple {
       background-color: $PurplishBlue !important;
+
+      &:hover{
+        background-color: $PurplishBlueHoverBG !important;
+      }
     }
   }
   
-  // #go-back-button{
-  
-  // }
+  #go-back-button{
+    background-color: transparent;
+    color: $CoolGray;
+
+    &:hover{
+      color: $MarineBlue;
+    }
+  }
 }
 
 .plan-select{
@@ -125,10 +149,13 @@ $StrawberryRed: hsl(354, 84%, 57%);
 
   &:hover{
     cursor: pointer;
+    border: 1px solid $PurplishBlue;
+    border-radius: 0.75rem;
   }
 
   &.selected{
     border: 1px solid $PurplishBlue;
+    background-color: $Alabaster; 
     border-radius: 0.75rem;
   }
 }
@@ -143,9 +170,15 @@ $StrawberryRed: hsl(354, 84%, 57%);
   margin-bottom: 1rem;
 }
 
-.chakra-card{
+.chakra-card.addon-card{
   &.checked{
     border: 1px solid $PurplishBlue;
+    background-color: $Alabaster;
+  }
+
+  &:hover{
+    border: 1px solid $PurplishBlue;
+    cursor: pointer;
   }
 }
 
@@ -155,6 +188,13 @@ $StrawberryRed: hsl(354, 84%, 57%);
   flex-direction: column;
   justify-content: space-between;
 }
+
+// .addon-card{
+//   &:hover{
+    
+//     border-radius: 0.5rem;
+//   }
+// }
 
 .addon-option-card-body{
   display: flex;
@@ -185,8 +225,8 @@ $StrawberryRed: hsl(354, 84%, 57%);
       border-color: $PurplishBlue;
 
       &:hover{
-        background-color: hsl(243, 100%, 66%);
-        border-color: hsl(243, 100%, 66%);
+        background-color: $PurplishBlueHoverBG;
+        border-color: $PurplishBlueHoverBorder;
       }
     }
   }
@@ -199,9 +239,9 @@ $StrawberryRed: hsl(354, 84%, 57%);
 .chakra-link{
   color: $PurplishBlue !important;
 
-  // &:hover{
-    
-  // }
+  &:hover{
+    color: $PurplishBlueHoverBG !important;
+  }
 }
 
 .addon-summary-detail{
