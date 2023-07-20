@@ -4,6 +4,7 @@ import PersonalInfo from "./PersonalInfo";
 import SelectPlan from "./SelectPlan";
 import AddOns from "./AddOns";
 import Summary from "./Summary";
+import ThankYou from "./ThankYou";
 
 function MainForm() {
 
@@ -30,6 +31,8 @@ function MainForm() {
         setFormTitle('Finishing up');
         setFormSubTitle('Double-check everything looks OK before confirming.');
         break;
+      case 4:
+        break;
       default:
         console.error('Error changing pages on form');
     }
@@ -38,8 +41,8 @@ function MainForm() {
 
   return(
     <Container maxW={'xl'} id='form-container'>
-      <Heading as={'h3'} id='form-title'>{formTitle}</Heading>
-      <Text id='form-subtitle'>{formSubTitle}</Text>
+      <Heading as={'h3'} id='form-title' visibility={formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
+      <Text id='form-subtitle' visibility={formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
       <br/>
       {
         formIdx === 0 ?
@@ -54,10 +57,13 @@ function MainForm() {
         formIdx === 3 ?
         <Summary />
         :
+        formIdx === 4 ?
+        <ThankYou />
+        :
         <p>Oh no you broke it</p>
       }
       <br/>
-      <div id='form-buttons'>
+      <div id='form-buttons' hidden={formIdx >= 4 ? true : false}>
         <Button id='go-back-button' onClick={() => handleChangeFormIdx(formIdx - 1)} visibility={formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
         <Button id='next-step-button' onClick={() => handleChangeFormIdx(formIdx + 1)} className={formIdx === 3 ? 'purple' : null}>
           {

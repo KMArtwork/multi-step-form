@@ -213,3 +213,10 @@ $StrawberryRed: hsl(354, 84%, 57%);
   justify-content: space-between;
   align-items: center;
 }
+
+.thankYou{
+  flex-direction: column;
+  justify-content: space-between !important;
+  padding: 2rem;
+  text-align: center;
+}
