@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import formSlice from "../../../../redux/formSlice";
 
@@ -17,19 +17,12 @@ function AddOnCard({title, subtitle, monthCost, checked}) {
     dispatch(setAddOns({
       title: title,
       isChecked: event.target.checked,
-      // cost: 
-      //   event.target.checked ?
-      //     state.isAnnualPlan ?
-      //       0 + (monthCost * 10)
-      //       :
-      //       0 + monthCost
-      //   :
-      //     state.isAnnualPlan ?
-      //       0 - (monthCost * 10)
-      //       : 
-      //       0 - monthCost
     }))
   }
+
+  useEffect(() => {
+    setIsChecked(state.addons[title].isAdded)
+  }, [])
 
   return(
     <Card className={isChecked ? 'checked addon-card' : 'addon-card'} >
