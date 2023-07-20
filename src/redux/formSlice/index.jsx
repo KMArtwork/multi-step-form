@@ -25,6 +25,12 @@ const formSlice = createSlice({
         monthCost: 2,
       },
     },
+    validation: {
+      name: false,
+      email: false,
+      phone: false,
+      plan: false,
+    }
   },
   reducers: {
     setName(state, action){
@@ -53,6 +59,10 @@ const formSlice = createSlice({
       // state.addons.cost = state.addons.cost + action.payload.cost;
       // console.log('new cost', state.addons.cost)
     },
+    setValidation(state, action){
+      console.log('set validation hit');
+      state.validation[action.payload.name] = action.payload.value;
+    }
   }
 })
 
