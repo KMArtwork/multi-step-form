@@ -1,21 +1,20 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import formSlice from "../../../redux/formSlice";
+import { useSelector } from "react-redux";
 
 import AddOnCard from "./AddOnCard";
 
 function AddOns() {
   
   const state = useSelector(state => state.form);
-  const dispatch = useDispatch();
-  const {setAddOns, setTotalCost} = formSlice.actions;
 
   return(
     <div className="form-step-container">
       <div id='addon-container'>
-        <AddOnCard title={'Online Services'} subtitle={'Access to multiplayer games'} moCost={1} checked={state.addons['Online Services']}/>
-        <AddOnCard title={'Larger Storage'} subtitle={'Extra 1TB of cloud save'} moCost={2} checked={state.addons['Larger Storage']}/>
-        <AddOnCard title={'Customizable Profile'} subtitle={'Custom theme on your profile'} moCost={2}  checked={state.addons['Customizable Profile']}/>        
+        <AddOnCard title={'Online Services'} subtitle={'Access to multiplayer games'} monthCost={state.addons['Online Services'].monthCost} checked={state.addons['Online Services'].isAdded}/>
+
+        <AddOnCard title={'Larger Storage'} subtitle={'Extra 1TB of cloud save'} monthCost={state.addons['Larger Storage'].monthCost} checked={state.addons['Larger Storage'].isAdded}/>
+
+        <AddOnCard title={'Customizable Profile'} subtitle={'Custom theme on your profile'} monthCost={state.addons['Customizable Profile'].monthCost}  checked={state.addons['Customizable Profile'].isAdded}/>        
       </div>
     </div>
   )

@@ -12,12 +12,19 @@ const formSlice = createSlice({
     },
     isAnnualPlan: undefined,
     addons: {
-      "Online Services": undefined,
-      "Larger Storage": undefined,
-      "Customizable Profile": undefined,
-      cost: 0,
+      "Online Services": {
+        isAdded: false,
+        monthCost: 1
+      },
+      "Larger Storage": {
+        isAdded: false,
+        monthCost: 2,
+      },
+      "Customizable Profile": {
+        isAdded: false,
+        monthCost: 2,
+      },
     },
-    totalCost: 0,
   },
   reducers: {
     setName(state, action){
@@ -42,12 +49,9 @@ const formSlice = createSlice({
     },
     setAddOns(state, action){
       console.log('set addons hit')
-      state.addons[action.payload.title] = action.payload.isChecked;
-      console.log(state.addons[action.payload.title]);
-    },
-    setTotalCost(state, action){
-      console.log('set total cost hit', state.totalCost + action.payload)
-      state.totalCost = state.totalCost + action.payload;
+      state.addons[action.payload.title].isAdded = action.payload.isChecked;
+      // state.addons.cost = state.addons.cost + action.payload.cost;
+      // console.log('new cost', state.addons.cost)
     },
   }
 })

@@ -4,11 +4,11 @@ import formSlice from "../../../../redux/formSlice";
 
 import { Card, CardBody, Checkbox, Text } from "@chakra-ui/react";
 
-function AddOnCard({title, subtitle, moCost, checked}) {
+function AddOnCard({title, subtitle, monthCost, checked}) {
 
   const state = useSelector(state => state.form);
   const dispatch = useDispatch();
-  const {setAddOns, setTotalCost} = formSlice.actions;
+  const { setAddOns } = formSlice.actions;
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -16,13 +16,19 @@ function AddOnCard({title, subtitle, moCost, checked}) {
     setIsChecked(event.target.checked);
     dispatch(setAddOns({
       title: title,
-      isChecked: event.target.checked
+      isChecked: event.target.checked,
+      // cost: 
+      //   event.target.checked ?
+      //     state.isAnnualPlan ?
+      //       0 + (monthCost * 10)
+      //       :
+      //       0 + monthCost
+      //   :
+      //     state.isAnnualPlan ?
+      //       0 - (monthCost * 10)
+      //       : 
+      //       0 - monthCost
     }))
-
-    event.target.checked ?
-    dispatch(setTotalCost(0 + moCost))
-    :
-    dispatch(setTotalCost(0 - moCost))
   }
 
   return(
@@ -38,9 +44,9 @@ function AddOnCard({title, subtitle, moCost, checked}) {
             <Text>
               {
                 state.isAnnualPlan ?
-                `+$${moCost * 10}/yr`
+                `+$${monthCost * 10}/yr`
                 :
-                `+$${moCost}/mo`
+                `+$${monthCost}/mo`
               }
             </Text>
           </div>

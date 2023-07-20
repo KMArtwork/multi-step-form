@@ -6,6 +6,7 @@ import { Container, Text, Heading, Button, FormControl, FormLabel, FormErrorMess
 import PersonalInfo from "./PersonalInfo";
 import SelectPlan from "./SelectPlan";
 import AddOns from "./AddOns";
+import Summary from "./Summary";
 
 function MainForm() {
 
@@ -54,7 +55,7 @@ function MainForm() {
         <AddOns />
         :
         formIdx === 3 ?
-        <p>Summary</p>
+        <Summary />
         :
         <p>Oh no you broke it</p>
       }

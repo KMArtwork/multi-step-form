@@ -2,9 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @import url('../sass/sidebar.scss');
 
+$CoolGray: hsl(231, 11%, 63%);
+$LightGray: hsl(229, 24%, 87%);
+$Magnolia: hsl(217, 100%, 97%);
+$Alabaster: hsl(231, 100%, 99%);
+$MarineBlue: hsl(213, 96%, 18%);
+$PurplishBlue: hsl(243, 100%, 62%);
+$PastelBlue: hsl(228, 100%, 84%);
+$LightBlue: hsl(206, 94%, 87%);
+$StrawberryRed: hsl(354, 84%, 57%);
 
 #root {
-  background-color: hsl(217, 100%, 97%);
+  background-color: $Magnolia;
+  color: $MarineBlue;
   font-family: "Ubuntu";
   font-weight: 400;
 }
@@ -26,7 +36,7 @@
 }
 
 .greyed {
-  color: hsl(231, 11%, 63%);
+  color: $CoolGray;
 }
 
 .form-step-container{
@@ -41,12 +51,12 @@
 
 #form-container{
   text-align: left;
-  color: hsl(213, 96%, 18%);
+  color: $MarineBlue;
   margin: 2rem;
 }
 
 #form-subtitle{
-  color: hsl(231, 11%, 63%);
+  color: $CoolGray;
   margin: 0.75rem 0;
 }
 
@@ -61,7 +71,7 @@
   }
 
   #next-step-button{
-    background-color: hsl(213, 96%, 18%) !important;
+    background-color: $MarineBlue !important;
     color: white !important;
     font-weight: 400 !important;
   }
@@ -76,7 +86,7 @@
   justify-content: center;
   padding: 0.75rem;
   margin: 2rem 0;
-  background-color: hsl(231, 100%, 99%);
+  background-color: $Alabaster;
 
   > label{
     margin: 0;
@@ -89,7 +99,7 @@
   .chakra-switch__track{
     // width: 40px;
     padding: 0.25rem;
-    background-color: hsl(213, 96%, 18%);
+    background-color: $MarineBlue;
   }
 }
 
@@ -118,7 +128,7 @@
 
 .chakra-card{
   &.checked{
-    border: 1px solid hsl(243, 100%, 62%);
+    border: 1px solid $PurplishBlue;
   }
 }
 
@@ -136,7 +146,7 @@
   .chakra-checkbox__control{
     width: 20px;
     height: 20px;
-    border: 1px solid hsl(229, 24%, 87%);
+    border: 1px solid $LightGray;
   }
   
   .addon-details{
@@ -149,13 +159,13 @@
 
   .addon-cost{
     justify-self: flex-end;
-    color: hsl(243, 100%, 62%);
+    color: $PurplishBlue;
   }
 
   [data-checked]{
     > .chakra-checkbox__control {
-      background-color: hsl(243, 100%, 62%);
-      border-color: hsl(243, 100%, 62%);
+      background-color: $PurplishBlue;
+      border-color: $PurplishBlue;
 
       &:hover{
         background-color: hsl(243, 100%, 66%);
@@ -163,4 +173,35 @@
       }
     }
   }
+}
+
+#summary-card-body{
+  background-color: $Alabaster;
+}
+
+.chakra-link{
+  color: $PurplishBlue !important;
+
+  &:hover{
+    // color: hsl(243, 100%, 62%)
+  }
+}
+
+.addon-summary-detail{
+  margin: 1rem 0;
+}
+
+#summary-total-cost-container{
+  padding: 0 1.25rem;
+}
+
+#summary-grand-total{
+  color: $PurplishBlue;
+  font-size: 1.5rem;
+}
+
+.summary-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

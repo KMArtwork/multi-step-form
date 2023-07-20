@@ -19,15 +19,17 @@ function SelectPlan() {
     dispatch(setIsAnnualPlan(event.target.checked))
   };
 
-  const handlePlanChange = (plan, cost) => {
+  const handlePlanChange = (plan) => {
     dispatch(setPlan(plan));
   }
 
   return(
     <div className="form-step-container">
       <div id='plan-cards'>
-        <PlanCard icon={Arcade} title={'Arcade'} monthCost={9} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Arcade', cost: 9})}}/>
-        <PlanCard icon={Advanced} title={'Advanced'} monthCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', cost: 12})}}/>
+        <PlanCard icon={Arcade} title={'Arcade'} monthCost={9} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Arcade', monthCost: 9})}}/>
+
+        <PlanCard icon={Advanced} title={'Advanced'} monthCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', monthCost: 12})}}/>
+
         <PlanCard icon={Pro} title={'Pro'} monthCost={15} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Pro', monthCost: 15})}}/>
       </div>
 
