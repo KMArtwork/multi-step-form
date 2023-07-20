@@ -43,12 +43,12 @@ function Summary() {
   useEffect(() => {
     let newTotal = calculateTotal();
     setTotal(newTotal);
-  }, [])
+  }, []) //eslint-disable-line
 
   useEffect(() => {
     let newTotal = calculateTotal();
     setTotal(newTotal);
-  }, [state.addons])
+  }, [state.addons]) //eslint-disable-line
 
   return(
     <div className='form-step-container'>

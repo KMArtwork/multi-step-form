@@ -1,12 +1,11 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import formSlice from "../../../redux/formSlice";
 
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, NumberInput, NumberInputField } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, NumberInput, NumberInputField } from "@chakra-ui/react";
 
 function PersonalInfo() {
 
-  const state = useSelector(state => state.form);
   const dispatch = useDispatch();
   const {setName, setEmail, setPhone} = formSlice.actions;
 

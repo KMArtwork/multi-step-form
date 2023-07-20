@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import formSlice from "../../redux/formSlice";
-
-import { Container, Text, Heading, Button, FormControl, FormLabel, FormErrorMessage, FormHelperText, Input } from "@chakra-ui/react";
+import { Container, Text, Heading, Button } from "@chakra-ui/react";
 import PersonalInfo from "./PersonalInfo";
 import SelectPlan from "./SelectPlan";
 import AddOns from "./AddOns";
@@ -62,7 +59,14 @@ function MainForm() {
       <br/>
       <div id='form-buttons'>
         <Button id='go-back-button' onClick={() => handleChangeFormIdx(formIdx - 1)} visibility={formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
-        <Button id='next-step-button' onClick={() => handleChangeFormIdx(formIdx + 1)}>Next Step</Button>
+        <Button id='next-step-button' onClick={() => handleChangeFormIdx(formIdx + 1)} className={formIdx === 3 ? 'purple' : null}>
+          {
+            formIdx === 3 ?
+            'Confirm'
+            :
+            'Next Step'
+          }
+        </Button>
       </div>
     </Container>
   )
