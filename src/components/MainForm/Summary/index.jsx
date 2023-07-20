@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Card, CardBody, Divider, Text, Link } from '@chakra-ui/react'
 import AddOnSummary from "./AddOnSummary";
 
-function Summary() {
+function Summary({changePlan}) {
 
   const state = useSelector(state => state.form);
   const [total, setTotal] = useState(0);
@@ -57,7 +57,7 @@ function Summary() {
           <div className="summary-row">
             <div>
               <Text className="bold">{`${state.plan.name} (${state.isAnnualPlan ? 'Yearly' : 'Monthly'})`}</Text>
-              <Link>Change</Link>
+              <Link onClick={changePlan}>Change</Link>
             </div>
             <Text className="bold">
               {state.isAnnualPlan ?

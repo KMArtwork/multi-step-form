@@ -56,8 +56,6 @@ const formSlice = createSlice({
     setAddOns(state, action){
       console.log('set addons hit')
       state.addons[action.payload.title].isAdded = action.payload.isChecked;
-      // state.addons.cost = state.addons.cost + action.payload.cost;
-      // console.log('new cost', state.addons.cost)
     },
     setValidation(state, action){
       console.log('set validation hit');

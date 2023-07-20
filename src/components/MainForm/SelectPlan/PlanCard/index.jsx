@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Card, CardBody, Image, Text } from "@chakra-ui/react";
 
 function PlanCard({icon, title, monthCost, isAnnual, setPlan}) {
 
+  const state = useSelector(state => state.form);
+
+  const handleClick = (event) => {
+    const planCards = document.getElementsByClassName('selected');
+
+    for(const plan of planCards){
+      plan.classList.remove('selected');
+    }
+
+    event.currentTarget.classList.add('selected')
+    setPlan();
+  }
+
+  useEffect(() => {
+    if(state.plan.name === title){
+      const thisCard = document.getElementById(title);
+      thisCard.classList.add('selected');
+    }
+  }, [])
+
   return(
-    <Card size={'lg'} className='plan-card' onClick={setPlan}>
+    <Card size={'lg'} className='plan-card' id={title} onClick={handleClick}>
       <CardBody className='plan-card-body'>
         <Image 
           src={icon}

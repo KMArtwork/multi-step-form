@@ -13,13 +13,17 @@ function SelectPlan() {
 
   const state = useSelector(state => state.form);
   const dispatch = useDispatch();
-  const {setIsAnnualPlan, setPlan} = formSlice.actions;
+  const {setIsAnnualPlan, setPlan, setValidation} = formSlice.actions;
 
   const handleIsAnnualChange = (event) => {
     dispatch(setIsAnnualPlan(event.target.checked))
   };
 
   const handlePlanChange = (plan) => {
+    dispatch(setValidation({
+      name: 'plan',
+      value: true
+    }))
     dispatch(setPlan(plan));
   }
 
@@ -28,15 +32,15 @@ function SelectPlan() {
       <div id='plan-cards'>
         <PlanCard icon={Arcade} title={'Arcade'} monthCost={9} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Arcade', monthCost: 9})}}/>
 
-        <PlanCard icon={Advanced} title={'Advanced'} monthCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', monthCost: 12})}}/>
+        <PlanCard icon={Advanced} title={'Advanced'} monthCost={12} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Advanced', monthCost: 12})}} onClick={() => console.log('YOYUOYO')}/>
 
         <PlanCard icon={Pro} title={'Pro'} monthCost={15} isAnnual={state.isAnnualPlan} setPlan={() => {handlePlanChange({name: 'Pro', monthCost: 15})}}/>
       </div>
 
       <FormControl onChange={handleIsAnnualChange} className='plan-select'>
-        <FormLabel className={state.plan ? 'greyed' : null}>Monthly</FormLabel>
+        <FormLabel className={state.isAnnualPlan ? 'greyed' : null}>Monthly</FormLabel>
         <Switch id='plan-select-switch' isChecked={state.isAnnualPlan}/>
-        <FormLabel className={state.plan ? null : 'greyed'}>Yearly</FormLabel>
+        <FormLabel className={state.isAnnualPlan ? null : 'greyed'}>Yearly</FormLabel>
       </FormControl>
     </div>
   )

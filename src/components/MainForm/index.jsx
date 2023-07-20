@@ -19,7 +19,6 @@ function MainForm() {
   const [formSubTitle, setFormSubTitle] = useState('Please provide your name, email address, and phone number');
 
   const handleChangeFormIdx = (idx) => {
-    console.log(idx);
     switch(idx){
       case 0:
         setFormTitle('Personal Info');
@@ -61,7 +60,7 @@ function MainForm() {
         <AddOns />
         :
         formIdx === 3 ?
-        <Summary />
+        <Summary changePlan={() => setFormIdx(1)}/>
         :
         formIdx === 4 ?
         <ThankYou />
@@ -70,7 +69,6 @@ function MainForm() {
       }
       <br/>
       <div id='form-buttons' hidden={formIdx >= 4 ? true : false}>
-        {console.log(state.validation.name, state.validation.email, state.validation.phone)}
         <Button id='go-back-button' onClick={() => handleChangeFormIdx(formIdx - 1)} visibility={formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
         <Button 
           id='next-step-button' 

@@ -122,6 +122,15 @@ $StrawberryRed: hsl(354, 84%, 57%);
   height: 175px;
   width: 150px;
   justify-content: space-between;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &.selected{
+    border: 1px solid $PurplishBlue;
+    border-radius: 0.75rem;
+  }
 }
 
 .plan-card-body{
