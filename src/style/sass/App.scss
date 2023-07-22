@@ -1,0 +1,582 @@
+@import url('../sass/reset.scss');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+$CoolGray: hsl(231, 11%, 63%);
+$LightGray: hsl(229, 24%, 87%);
+$Magnolia: hsl(217, 100%, 97%);
+$Alabaster: hsl(231, 100%, 99%);
+$MarineBlue: hsl(213, 96%, 18%);
+$PurplishBlue: hsl(243, 100%, 62%);
+$PastelBlue: hsl(228, 100%, 84%);
+$LightBlue: hsl(206, 94%, 87%);
+$StrawberryRed: hsl(354, 84%, 57%);
+
+//---------------CustomColors-----------
+$PurplishBlueHoverBG: hsl(243, 100%, 66%);
+$PurplishBlueHoverBorder: hsl(243, 100%, 66%);
+$GhostWhite: hsl(230,75%,98%);
+
+//---------------General----------------
+
+#root {
+  background-color: $Magnolia;
+  color: $MarineBlue;
+  font-family: "Ubuntu";
+  font-weight: 400;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.greyed {
+  color: $CoolGray;
+}
+
+.purple {
+  background-color: $PurplishBlue;
+}
+
+input{
+  border-color: $LightGray !important;
+
+  &:focus-visible{
+    border-color: $PurplishBlue !important;
+    box-shadow: 0 0 0 1px $PurplishBlue !important;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.form-step-container{
+  height: 300px;
+}
+
+//---------------Main Form----------------
+
+#form-card-body{
+  width: 975px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#form-wrapper{
+  width: 70%;
+  margin: 2rem;
+}
+
+#form-container{
+  text-align: left;
+  color: $MarineBlue;
+}
+
+#form-subtitle{
+  color: $CoolGray;
+  margin: 0.75rem 0;
+}
+
+#form-buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem; 
+  margin: 0 1rem;
+
+  > * {
+    padding: 1.5rem 1rem;
+    // position: relative;
+    // top: 2.5rem;
+    width: 25%;
+  }
+
+  #next-step-button{
+    background-color: $MarineBlue !important;
+    color: white !important;
+    font-weight: 400 !important;
+    
+    &.purple {
+      background-color: $PurplishBlue !important;
+
+      &:hover{
+        background-color: $PurplishBlueHoverBG !important;
+      }
+    }
+  }
+  
+  #go-back-button{
+    background-color: transparent;
+    color: $CoolGray;
+
+    &:hover{
+      color: $MarineBlue;
+    }
+  }
+}
+
+//---------------Your Plan----------------
+
+.plan-select{
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+  margin: 2rem 0;
+  background-color: $GhostWhite;
+
+  > label{
+    margin: 0;
+  }
+
+  .chakra-switch{
+    margin: 0 1.5rem;
+  }
+
+  .chakra-switch__track{
+    // width: 40px;
+    padding: 0.25rem;
+    background-color: $MarineBlue;
+  }
+}
+
+#plan-cards{
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-card{
+  display: flex;
+  flex-direction: column;
+  height: 175px;
+  width: 150px;
+  justify-content: space-between;
+
+  &:hover{
+    cursor: pointer;
+    border: 1px solid $PurplishBlue;
+    border-radius: 0.75rem;
+  }
+
+  &.selected{
+    border: 1px solid $PurplishBlue;
+    background-color: $Alabaster; 
+    border-radius: 0.75rem;
+  }
+}
+
+.plan-card-body{
+  padding: 1rem !important;
+}
+
+.plan-card-details{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+}
+
+//---------------AddOns----------------
+
+.addon-card{
+  &.checked{
+    border: 1px solid $PurplishBlue;
+    background-color: $Alabaster;
+  }
+
+  &:hover{
+    border: 1px solid $PurplishBlue;
+    cursor: pointer;
+  }
+}
+
+#addon-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addon-option-card-body{
+  display: flex;
+  align-items: center;
+
+  .chakra-checkbox__control{
+    width: 20px;
+    height: 20px;
+    border: 1px solid $LightGray;
+  }
+  
+  .addon-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 1rem 0 1.5rem;
+  }
+
+  .addon-cost{
+    justify-self: flex-end;
+    color: $PurplishBlue;
+  }
+
+  [data-checked]{
+    > .chakra-checkbox__control {
+      background-color: $PurplishBlue;
+      border-color: $PurplishBlue;
+
+      &:hover{
+        background-color: $PurplishBlueHoverBG;
+        border-color: $PurplishBlueHoverBorder;
+      }
+    }
+  }
+}
+
+//---------------Summary----------------
+
+#summary-card-body{
+  background-color: $Alabaster;
+}
+
+.chakra-link{
+  color: $PurplishBlue !important;
+  text-decoration: underline !important;
+
+  &:hover{
+    color: $PurplishBlueHoverBG !important;
+  }
+}
+
+.addon-summary-detail{
+  margin: 1rem 0;
+}
+
+#summary-total-cost-container{
+  padding: 0 1.25rem;
+}
+
+#summary-grand-total{
+  color: $PurplishBlue;
+  font-size: 1.5rem;
+}
+
+.summary-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//---------------ThankYou----------------
+
+.thankYou{
+  flex-direction: column;
+  justify-content: space-between !important;
+  padding: 2rem;
+  text-align: center;
+}
+
+//---------------SideBar----------------
+
+#sidebar-bg{
+  width: 274px;
+  height: 568px;
+  background-image: url('../../assets/images/bg-sidebar-desktop.svg');
+  color: white;
+  padding: 1rem;
+}
+
+#test{
+  color: white;
+}
+
+.sidebar-step{
+  margin: 1.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+}
+
+.step-number{
+  border: 1px solid white;
+  color: white;
+  margin-right: 1rem;
+
+  &.active{
+    background-color: hsl(228, 100%, 84%);
+    color: hsl(213, 96%, 18%);
+  }
+}
+
+.step-text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  > * {
+    padding: 0.15rem 0;
+  }
+}
+
+.step-number-text{
+  font-weight: 300;
+}
+
+.step-label{
+  text-transform: uppercase;
+}
+
+//---------------Mobile----------------
+
+@media (max-width: 500px){
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .App{
+    // width: 100%;
+    // height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #form-card{
+    width: 100%;
+    height: 100%;
+  }
+
+  br{
+    display: none;
+  }
+
+  .bold{
+    font-size: 0.95rem;
+  }
+
+  p{
+    font-size: 0.85rem;
+  }
+
+  // ---------------
+
+  #sidebar-bg{
+    background-image: url('../../assets/images/bg-sidebar-mobile.svg');
+    // background-size: cover;
+    width: 375px;
+    height: 172px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #form-all-steps{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+  }
+
+  .sidebar-step{
+    margin: 0.5rem;
+  }
+
+  .step-number{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .step-text{
+    display: none;
+  }
+
+  //-----------------------------
+  
+  #form-card{
+    margin: 0;
+  }
+
+  #form-container{
+    width: 90%;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: $Alabaster;
+    position: relative;
+    bottom: 73px;
+    z-index: 5;
+  }
+
+  #form-wrapper{
+    width: 100%;
+    margin: 0;
+  }
+
+  #form-header{
+    height: auto;
+    width: auto;
+    > * {
+      padding-right: 2rem;
+    }
+  }
+
+  #form-body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  #form-buttons{
+    width: 100%;
+    background-color: $Alabaster;
+    margin: 0;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    
+    > * {
+      padding: 1rem;
+      width: 30%;
+      border-radius: 3px;
+    }
+  }
+
+  #form-card-body{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    // height: 100%;
+    padding: 0;
+    background-color: $Magnolia;
+  }
+
+  .form-step-container{
+    height: auto;
+    // margin-bottom: 1rem;
+  }
+
+  //--------------------------
+
+  #plan-cards{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-card {
+    width: 100%;
+    height: 5rem;
+    margin: 0.25rem 0;
+  }
+
+  .plan-card-body{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .plan-card-details{
+    position: relative;
+    margin: 0;
+    margin-left: 1rem;
+    p {
+      font-size: 0.95rem;
+    }
+    :last-child{
+      font-weight: 500;
+    }
+  }
+
+  .plan-select{
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  //--------------------------
+
+  .addon-card{
+    margin: 0.5rem 0;
+  }
+
+  .addon-option-card-body{
+    padding: 0.5rem 0.75rem !important;
+
+    > .addon-details{
+      margin: 0;
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      > * {
+        margin-left: 0.75rem;
+      }
+    }
+  }
+
+  // --------------------------
+
+  .addon-summary-detail{
+    margin: 0;
+    margin-top: 1rem;
+
+    :last-child{
+      font-weight: 500;
+    }
+  }
+
+  #summary-card-body{
+    background-color: $GhostWhite;
+  }
+
+  #summary-total-cost-container{
+    padding-top: 1rem;
+  }
+
+  #summary-grand-total{
+    font-size: 1.125rem;
+  }
+
+  // --------------------------
+
+  .thankYou{
+    padding: 0.5rem;
+
+    img{
+      width: 66%;
+      margin: 2rem 0 1rem 0;
+    }
+
+    > * {
+      margin: 0.25rem 0;
+    }
+
+    h2{
+      font-size: 1.5rem ;
+    }
+
+    p{
+      font-size: 1rem;
+    }
+  }
+
+}
