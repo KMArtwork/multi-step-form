@@ -6,20 +6,20 @@ I wanted to really test my limits as a front end developer with this project. It
 
 <details>
   <summary>Desktop Screenshots</summary>
-  <img src='./public/readMeScreenshots/Desktop-1.JPG' name='Personal Info' />
-  <img src='./public/readMeScreenshots/Desktop-2a.JPG' name='Select Plan' />
-  <img src='./public/readMeScreenshots/Desktop-3a.JPG' name='Add Ons' />
-  <img src='./public/readMeScreenshots/Desktop-4a.JPG' name='Summary' />
-  <img src='./public/readMeScreenshots/Desktop-5.JPG' name='Thank You' />
+  <img src='./public/readMeScreenshots/Desktop-personal.JPG' name='Personal Info' />
+  <img src='./public/readMeScreenshots/Desktop-plan.JPG' name='Select Plan' />
+  <img src='./public/readMeScreenshots/Desktop-addons.JPG' name='Add Ons' />
+  <img src='./public/readMeScreenshots/Desktop-summary.JPG' name='Summary' />
+  <img src='./public/readMeScreenshots/Desktop-thankyou.JPG' name='Thank You' />
 </details>
 
 <details>
   <summary>Mobile Screenshots</summary>
-  <img src='./public/readMeScreenshots/Desktop-1.JPG' name='Personal Info' />
-  <img src='./public/readMeScreenshots/Desktop-2b.JPG' name='Select Plan' />
-  <img src='./public/readMeScreenshots/Desktop-3b.JPG' name='Add Ons' />
-  <img src='./public/readMeScreenshots/Desktop-4b.JPG' name='Summary' />
-  <img src='./public/readMeScreenshots/Desktop-5.JPG' name='Thank You' />
+  <img src='./public/readMeScreenshots/Mobile-personal.png' name='Personal Info' />
+  <img src='./public/readMeScreenshots/Mobile-plan.png' name='Select Plan' />
+  <img src='./public/readMeScreenshots/Mobile-addons.png' name='Add Ons' />
+  <img src='./public/readMeScreenshots/Mobile-summary.png' name='Summary' />
+  <img src='./public/readMeScreenshots/Mobile-thankyou.png' name='Thank You' />
 </details>
 
 ## Links
