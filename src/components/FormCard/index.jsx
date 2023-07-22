@@ -8,7 +8,7 @@ import MainForm from "../MainForm";
 function FormCard() {
 
   return(
-    <Card>
+    <Card id='form-card'>
       <CardBody id='form-card-body'>
         <Sidebar />
         <MainForm />

@@ -44,29 +44,35 @@ function MainForm() {
   }
 
   return(
-    <Container maxW={'xl'} id='form-container'>
-      <Heading as={'h3'} id='form-title' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
-      <Text id='form-subtitle' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
-      <br/>
-      {
-        state.formIdx === 0 ?
-        <PersonalInfo />
-        :
-        state.formIdx === 1 ?
-        <SelectPlan />
-        :
-        state.formIdx === 2 ?
-        <AddOns />
-        :
-        state.formIdx === 3 ?
-        <Summary changePlan={() => setFormIdx(1)}/>
-        :
-        state.formIdx === 4 ?
-        <ThankYou />
-        :
-        <p>Oh no you broke it</p>
-      }
-      <br/>
+    <div id="form-wrapper">
+      <Container maxW={'xl'} id='form-container'>
+        <div id='form-header'>
+          <Heading as={'h3'} id='form-title' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
+          <Text id='form-subtitle' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
+        </div>
+        <br/>
+        <div id='form-body'>
+          {
+            state.formIdx === 0 ?
+            <PersonalInfo />
+            :
+            state.formIdx === 1 ?
+            <SelectPlan />
+            :
+            state.formIdx === 2 ?
+            <AddOns />
+            :
+            state.formIdx === 3 ?
+            <Summary changePlan={() => setFormIdx(1)}/>
+            :
+            state.formIdx === 4 ?
+            <ThankYou />
+            :
+            <p>Oh no you broke it</p>
+          }
+        </div>
+        <br/>
+      </Container>
       <div id='form-buttons' hidden={state.formIdx >= 4 ? true : false}>
         <Button id='go-back-button' onClick={() => handleChangeFormIdx(state.formIdx - 1)} visibility={state.formIdx > 0 ? 'visible' : 'hidden'}>Go Back</Button>
         <Button 
@@ -97,7 +103,7 @@ function MainForm() {
           }
         </Button>
       </div>
-    </Container>
+    </div>
   )
 
 }
