@@ -46,9 +46,9 @@ function MainForm() {
   return(
     <div id="form-wrapper">
       <Container maxW={'xl'} id='form-container'>
-        <div id='form-header'>
-          <Heading as={'h3'} id='form-title' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formTitle}</Heading>
-          <Text id='form-subtitle' visibility={state.formIdx >= 4 ? 'hidden': 'visible'}>{formSubTitle}</Text>
+        <div id='form-header' hidden={state.formIdx >= 4 ? true : false}>
+          <Heading as={'h3'} id='form-title'>{formTitle}</Heading>
+          <Text id='form-subtitle'>{formSubTitle}</Text>
         </div>
         <br/>
         <div id='form-body'>
