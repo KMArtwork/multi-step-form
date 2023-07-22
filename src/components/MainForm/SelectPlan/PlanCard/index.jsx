@@ -22,7 +22,7 @@ function PlanCard({icon, title, monthCost, isAnnual, setPlan}) {
       const thisCard = document.getElementById(title);
       thisCard.classList.add('selected');
     }
-  }, [])
+  }, []) //eslint-disable-line
 
   return(
     <Card size={'lg'} className='plan-card' id={title} onClick={handleClick}>

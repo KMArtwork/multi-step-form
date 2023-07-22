@@ -22,12 +22,12 @@ function AddOnCard({title, subtitle, monthCost, checked}) {
 
   useEffect(() => {
     setIsChecked(state.addons[title].isAdded)
-  }, [])
+  }, []) //eslint-disable-line
 
   return(
     <Card className={isChecked ? 'checked addon-card' : 'addon-card'} onClick={handleClick}>
       <CardBody className="addon-option-card-body">
-        <Checkbox isChecked={checked} />
+        <Checkbox isChecked={checked}/>
         <div className="addon-details">
           <div className='addon-text'>
             <Text className="bold">{title}</Text>
