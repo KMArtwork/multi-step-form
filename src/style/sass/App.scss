@@ -501,6 +501,9 @@ input{
     p {
       font-size: 0.95rem;
     }
+    :last-child{
+      font-weight: 500;
+    }
   }
 
   .plan-select{
@@ -515,13 +518,17 @@ input{
   }
 
   .addon-option-card-body{
-    padding: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
 
     > .addon-details{
       margin: 0;
 
+      p {
+        font-size: 0.8rem;
+      }
+
       > * {
-        margin-left: 0.5rem;
+        margin-left: 0.75rem;
       }
     }
   }
